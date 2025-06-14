@@ -14,7 +14,7 @@ namespace metroidvania.joystick
 	{
 		#region public vars
 		public string key_map = "player 1";
-		public osfera.input control;
+		public osfera.input.Osfera control;
 		//public Metroidvania_player_character_controller controller;
 		public Osfera_player_character_controller controller;
 		public Osfera_player_ui_controller ui_controller;
@@ -168,7 +168,7 @@ namespace metroidvania.joystick
 		protected override void Awake()
 		{
 			base.Awake();
-			control = new metroidvania.input.Metroidvania();
+			control = new osfera.input.Osfera();
 		}
 
 	}
