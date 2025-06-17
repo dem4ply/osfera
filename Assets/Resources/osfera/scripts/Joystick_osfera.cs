@@ -45,7 +45,7 @@ namespace metroidvania.joystick
 		public void on_move( InputAction.CallbackContext context )
 		{
 			var vector = context.ReadValue<Vector2>();
-			_desire_direction = new Vector3( vector.y, 0, vector.x );
+			_desire_direction = new Vector3( vector.x, 0, vector.y );
 			if ( 0.1f < _desire_direction.magnitude )
 				_desire_speed = 1f;
 			else

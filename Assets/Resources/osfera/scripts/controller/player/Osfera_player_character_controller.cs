@@ -115,8 +115,10 @@ namespace osfera.controller.player
 					switch ( e )
 					{
 						case chibi.joystick.events.down:
+							player.gun.automatic_shot = true;
 							break;
 						case chibi.joystick.events.up:
+							player.gun.automatic_shot = false;
 							break;
 					}
 					break;
@@ -139,7 +141,7 @@ namespace osfera.controller.player
 			base.action( name, e );
 			switch ( name )
 			{
-				case "fire1":
+				case "fire":
 					action( name, e, true );
 					break;
 				case "jump":

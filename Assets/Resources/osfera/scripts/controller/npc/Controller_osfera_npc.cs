@@ -9,21 +9,10 @@ namespace osfera.controller.npc
 {
 	public class Controller_osfera_npc: chibi.controller.npc.Controller_npc
 	{
-		public override Vector3 desire_direction
-		{
-			get {
-				return base.desire_direction;
-			}
-
-			set {
-				base.desire_direction = new Vector3( value.z, 0, value.x );
-				motor.desire_direction = desire_direction;
-			}
-		}
-
 		public Camera main_camera;
 		public chibi.weapon.gun.Linear_gun gun;
 		public Transform target_of_gun;
+		public Transform origin_of_gun_aim;
 
 		public Vector2 mouse_position
 		{
@@ -38,6 +27,11 @@ namespace osfera.controller.npc
 			var distancia = main_camera.transform.InverseTransformPoint( transform.position );
 			Vector3 mouse_3d = new Vector3( mouse_position.x, mouse_position.y, distancia.z );
 			Vector3 world_position = main_camera.ScreenToWorldPoint( mouse_3d );
+			world_position.y = origin_of_gun_aim.position.y;
+			Vector3 aim_dirrection = world_position - origin_of_gun_aim.position;
+			//aim_dirrection.y = origin_of_gun_aim.position.y;
+			//aim_dirrection.Normalize();
+			return origin_of_gun_aim.position + aim_dirrection;
 
 			return world_position;
 		}
@@ -62,6 +56,8 @@ namespace osfera.controller.npc
 
 			if ( !target_of_gun )
 				debug.error( "no asingado el target para el gun" );
+			if ( !origin_of_gun_aim )
+				debug.error( "no asingado el origin del target para el gun" );
 		}
 	}
 }
