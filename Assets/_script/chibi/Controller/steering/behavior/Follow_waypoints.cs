@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using chibi.controller.handler;
+using snippet.objects;
 
 namespace chibi.controller.steering.behavior
 {
@@ -12,7 +13,7 @@ namespace chibi.controller.steering.behavior
 			Steering controller, Transform target,
 			Steering_properties properties )
 		{
-			var current_target = properties.waypoints[
+			Vector3 current_target = properties.waypoints[
 				properties.current_waypoint ];
 			if ( loop
 				&& properties.current_waypoint >= properties.waypoints.Count - 1 )
@@ -21,7 +22,7 @@ namespace chibi.controller.steering.behavior
 			}
 			if ( properties.current_waypoint < properties.waypoints.Count - 1
 				&& Vector3.Distance(
-					current_target, controller.transform.position ) < 0.2 )
+					current_target, controller.transform.position ) < 0.5 )
 			{
 				properties.current_waypoint += 1;
 			}

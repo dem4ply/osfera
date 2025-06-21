@@ -116,7 +116,8 @@ namespace chibi.editor.path
 
 		protected void draw()
 		{
-			handdlers_for_move_points();
+			if ( path.segments.Count > 0 )
+				handdlers_for_move_points();
 		}
 
 		protected void handdlers_for_move_points()

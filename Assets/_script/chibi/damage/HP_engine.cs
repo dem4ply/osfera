@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.Services.Analytics;
+using UnityEngine;
 
 namespace chibi.damage
 {
@@ -29,7 +30,7 @@ namespace chibi.damage
 				}
 			}
 
-			private void OnCollisionEnter( Collision collision )
+			protected virtual void OnCollisionEnter( Collision collision )
 			{
 				if ( helper.consts.tags.damage == collision.gameObject.tag )
 				{

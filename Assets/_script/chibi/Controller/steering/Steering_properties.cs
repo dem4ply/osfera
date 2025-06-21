@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace chibi.controller.steering
 {
+	[Serializable]
 	public class Steering_properties
 	{
 		public float time = 0f;
